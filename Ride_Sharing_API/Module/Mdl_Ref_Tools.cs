@@ -1,4 +1,4 @@
-﻿namespace Kairos_Web_Api.Modul
+﻿namespace Ride_Sharing_API.Modul
 {
     using System;
     using System.Collections.Generic;
@@ -173,6 +173,24 @@
                 Result = Result + (item.Operator_Next != Operator_Next_Query.Empty ? item.Operator_Next.ToString() : "");
 
                 return Result;
+            }
+        }
+
+        public string Hash_MD5(string input)
+        {
+            // Use input string to calculate MD5 hash
+            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Convert the byte array to hexadecimal string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+                return sb.ToString();
             }
         }
     }

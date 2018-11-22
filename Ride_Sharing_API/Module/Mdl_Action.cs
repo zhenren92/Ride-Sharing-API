@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Data;
 
-namespace Kairos_Web_Api.Modul
+namespace Ride_Sharing_API.Modul
 {
     public class Mdl_Action
     {
@@ -180,7 +180,7 @@ namespace Kairos_Web_Api.Modul
                         {
                             cmd.Parameters.AddWithValue("@" + prm.Key, prm.Value);
                         }
-                        //else if(prm.Value.GetType() == typeof(int))
+                        //else if (prm.Value.GetType() == typeof(int))
                         //{
                         //    cmd.Parameters.AddWithValue("@" + prm.Key, Convert.ToInt32(prm.Value));
                         //}

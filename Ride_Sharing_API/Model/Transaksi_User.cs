@@ -9,13 +9,18 @@ namespace Ride_Sharing_API.Model
     {
 
         #region Deklarasi Enum
-
+        public enum Status_Transaksi
+        {
+            Aktif = 0 ,
+            Dibatalkan = 1 ,
+            Proces = 2 ,
+            Selesai = 3
+        }
         #endregion
 
         #region Deklarasi Properties
 
         private string _ID_Transaksi;
-
         public string ID_Transaksi
         {
             get { return _ID_Transaksi; }
@@ -23,7 +28,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private Ride_User _ID_User;
-
         public Ride_User ID_User
         {
             get { return _ID_User; }
@@ -32,21 +36,25 @@ namespace Ride_Sharing_API.Model
 
 
         private Ride_Driver _ID_Driver;
-
         public Ride_Driver ID_Driver
         {
             get { return _ID_Driver; }
             set { _ID_Driver = value; }
         }
 
-        private string _Lokasi_Jemput_Latitude;
+        private Jenis_Fasilitas _ID_Jenis_Fasilitas;
+        public Jenis_Fasilitas ID_Jenis_Fasilitas
+        {
+            get { return _ID_Jenis_Fasilitas; }
+            set { _ID_Jenis_Fasilitas = value; }
+        }
 
+        private string _Lokasi_Jemput_Latitude;
         public string Lokasi_Jemput_Latitude
         {
             get { return _Lokasi_Jemput_Latitude; }
             set { _Lokasi_Jemput_Latitude = value; }
         }
-
         private string _Lokasi_Jemput_Longitude;
 
         public string Lokasi_Jemput_Longitude
@@ -54,7 +62,6 @@ namespace Ride_Sharing_API.Model
             get { return _Lokasi_Jemput_Longitude; }
             set { _Lokasi_Jemput_Longitude = value; }
         }
-
         private string _Lokasi_Tujuan_Latitude;
 
         public string Lokasi_Tujuan_Latitude
@@ -62,7 +69,6 @@ namespace Ride_Sharing_API.Model
             get { return _Lokasi_Tujuan_Latitude; }
             set { _Lokasi_Tujuan_Latitude = value; }
         }
-
         private string _Lokasi_Tujuan_Longtitute;
 
         public string Lokasi_Tujuan_Longtitute
@@ -70,7 +76,6 @@ namespace Ride_Sharing_API.Model
             get { return _Lokasi_Tujuan_Longtitute; }
             set { _Lokasi_Tujuan_Longtitute = value; }
         }
-
         private string _Nama_Lokasi_Jemput;
 
         public string Nama_Lokasi_Jemput
@@ -80,7 +85,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private string _Nama_Lokasi_Tujuan;
-
         public string Nama_Lokasi_Tujuan
         {
             get { return _Nama_Lokasi_Tujuan; }
@@ -88,7 +92,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private decimal _Jarak;
-
         public decimal Jarak
         {
             get { return _Jarak; }
@@ -96,7 +99,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private TimeSpan _Estimasi_Lama_Perjalanan;
-
         public TimeSpan Estimasi_Lama_Perjalanan
         {
             get { return _Estimasi_Lama_Perjalanan; }
@@ -104,23 +106,20 @@ namespace Ride_Sharing_API.Model
         }
 
         private decimal _Harga;
-
         public decimal Harga
         {
             get { return _Harga; }
             set { _Harga = value; }
         }
 
-        private string _Status;
-
-        public string Status
+        private Status_Transaksi _Status;
+        public Status_Transaksi Status
         {
             get { return _Status; }
             set { _Status = value; }
         }
 
         private DateTime _Waktu_Request;
-
         public DateTime Waktu_Request
         {
             get { return _Waktu_Request; }
@@ -128,13 +127,11 @@ namespace Ride_Sharing_API.Model
         }
 
         private DateTime _Waktu_Start;
-
         public DateTime Waktu_Start
         {
             get { return _Waktu_Start; }
             set { _Waktu_Start = value; }
         }
-
         private DateTime _Waktu_Selesai;
 
         public DateTime Waktu_Selesai
@@ -142,7 +139,6 @@ namespace Ride_Sharing_API.Model
             get { return _Waktu_Selesai; }
             set { _Waktu_Selesai = value; }
         }
-
         private TimeSpan _Lama_Perjalanan;
 
         public TimeSpan Lama_Perjalanan

@@ -42,6 +42,15 @@ namespace Ride_Sharing_API.Model
             set { _Jenis_Kelamin = value; }
         }
 
+        private string _No_Handphone;
+
+        public string No_Handphone
+        {
+            get { return _No_Handphone; }
+            set { _No_Handphone = value; }
+        }
+
+
         private string _Email;
 
         public string Email

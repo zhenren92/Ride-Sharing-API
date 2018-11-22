@@ -24,7 +24,6 @@ namespace Ride_Sharing_API.Model
         #region Deklarasi Properties
 
         private string _ID_Driver;
-
         public string ID_Driver
         {
             get { return _ID_Driver; }
@@ -32,7 +31,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private string _Nama_Driver;
-
         public string Nama_Driver
         {
             get { return _Nama_Driver; }
@@ -40,15 +38,20 @@ namespace Ride_Sharing_API.Model
         }
 
         private Status_Jenis_Kelamin _Jenis_Kelamin;
-
         public Status_Jenis_Kelamin Jenis_Kelamin
         {
             get { return _Jenis_Kelamin; }
             set { _Jenis_Kelamin = value; }
         }
 
-        private string _Email;
+        private string _No_Handphone;
+        public string No_Handphone
+        {
+            get { return _No_Handphone; }
+            set { _No_Handphone = value; }
+        }
 
+        private string _Email;
         public string Email
         {
             get { return _Email; }
@@ -56,15 +59,12 @@ namespace Ride_Sharing_API.Model
         }
 
         private string _Password;
-
         public string Password
         {
             get { return _Password; }
             set { _Password = value; }
         }
-
-
-
+        
         #endregion
     }
 }
