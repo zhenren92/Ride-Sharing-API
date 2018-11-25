@@ -1,4 +1,4 @@
-﻿using Ride_Sharing_API.Modul;
+﻿    using Ride_Sharing_API.Modul;
 using Ride_Sharing_API.Model;
 using System;
 using System.Collections.Generic;
@@ -59,8 +59,8 @@ namespace Ride_Sharing_API.Model_Action
         public async Task<List<Jenis_Fasilitas>> Pencarian_Data(string Prm_Query_Where = "")
         {
             DataTable dtb = await new Mdl_Action().Setting_SP_Tampil_Data
-                ("M_Jenis_Fasilitas",
-                "ID_Jenis_Fasilitas, Nama_Jenis_Fasilitas, ID_Harga_Fasilitas",
+                ("V_Jenis_Fasilitas",
+                "ID_Jenis_Fasilitas, Nama_Jenis_Fasilitas, ID_Harga_Fasilitas, Nama_Harga_Fasilitas, Satuan_Harga, Harga",
                 Prm_Query_Where,
                 "Nama_Jenis_Fasilitas ASC");
 
@@ -78,7 +78,10 @@ namespace Ride_Sharing_API.Model_Action
                             Nama_Jenis_Fasilitas = (row["Nama_Jenis_Fasilitas"].ToString() != string.Empty) ? row["Nama_Jenis_Fasilitas"].ToString() : string.Empty ,
                             ID_Harga_Fasilitas = new Harga_Fasilitas
                             {
-                                ID_Harga_Fasilitas = (row["ID_Harga_Fasilitas"].ToString() != string.Empty) ? row["ID_Harga_Fasilitas"].ToString() : string.Empty
+                                ID_Harga_Fasilitas = (row["ID_Harga_Fasilitas"].ToString() != string.Empty) ? row["ID_Harga_Fasilitas"].ToString() : string.Empty ,
+                                Nama_Harga_Fasilitas = (row["Nama_Harga_Fasilitas"].ToString() != string.Empty) ? row["Nama_Harga_Fasilitas"].ToString() : string.Empty,
+                                Satuan_Harga = (row["Satuan_Harga"].ToString() != string.Empty) ? row["Satuan_Harga"].ToString() : string.Empty,
+                                Harga = Convert.ToDecimal((row["Harga"].ToString() != string.Empty) ? row["Harga"].ToString() : "0")
                             } 
                         }
                         );

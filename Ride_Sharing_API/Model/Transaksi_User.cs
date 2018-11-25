@@ -49,35 +49,14 @@ namespace Ride_Sharing_API.Model
             set { _ID_Jenis_Fasilitas = value; }
         }
 
-        private string _Lokasi_Jemput_Latitude;
-        public string Lokasi_Jemput_Latitude
+        private Harga_Pemesanan _Harga_Pemesanan;
+        public Harga_Pemesanan Harga_Pemesanan
         {
-            get { return _Lokasi_Jemput_Latitude; }
-            set { _Lokasi_Jemput_Latitude = value; }
+            get { return _Harga_Pemesanan; }
+            set { _Harga_Pemesanan = value; }
         }
-        private string _Lokasi_Jemput_Longitude;
 
-        public string Lokasi_Jemput_Longitude
-        {
-            get { return _Lokasi_Jemput_Longitude; }
-            set { _Lokasi_Jemput_Longitude = value; }
-        }
-        private string _Lokasi_Tujuan_Latitude;
-
-        public string Lokasi_Tujuan_Latitude
-        {
-            get { return _Lokasi_Tujuan_Latitude; }
-            set { _Lokasi_Tujuan_Latitude = value; }
-        }
-        private string _Lokasi_Tujuan_Longtitute;
-
-        public string Lokasi_Tujuan_Longtitute
-        {
-            get { return _Lokasi_Tujuan_Longtitute; }
-            set { _Lokasi_Tujuan_Longtitute = value; }
-        }
         private string _Nama_Lokasi_Jemput;
-
         public string Nama_Lokasi_Jemput
         {
             get { return _Nama_Lokasi_Jemput; }
@@ -89,27 +68,6 @@ namespace Ride_Sharing_API.Model
         {
             get { return _Nama_Lokasi_Tujuan; }
             set { _Nama_Lokasi_Tujuan = value; }
-        }
-
-        private decimal _Jarak;
-        public decimal Jarak
-        {
-            get { return _Jarak; }
-            set { _Jarak = value; }
-        }
-
-        private TimeSpan _Estimasi_Lama_Perjalanan;
-        public TimeSpan Estimasi_Lama_Perjalanan
-        {
-            get { return _Estimasi_Lama_Perjalanan; }
-            set { _Estimasi_Lama_Perjalanan = value; }
-        }
-
-        private decimal _Harga;
-        public decimal Harga
-        {
-            get { return _Harga; }
-            set { _Harga = value; }
         }
 
         private Status_Transaksi _Status;

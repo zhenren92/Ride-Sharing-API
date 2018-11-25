@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Ride_Sharing_API.Model;
 using static Ride_Sharing_API.Modul.Mdl_Ref_Tools;
+using GeoCoordinatePortable;
 
 namespace Ride_Sharing_API.Controllers
 {
@@ -86,7 +87,6 @@ namespace Ride_Sharing_API.Controllers
             }
         }
 
-
         [Produces("application/json")]
         [HttpPost("SaveTransaksiUser")]
         public async Task<IActionResult> SaveTransaksiUser([FromBody] Transaksi_User prm_obj)
@@ -118,6 +118,73 @@ namespace Ride_Sharing_API.Controllers
                 if (IDTransaksi != "")
                 {
                     object obj = await new Model_Action.Transaksi_User_Action().Hapus_Data(IDTransaksi);
+                    return Ok((obj == null) ? null : obj);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Produces("application/json")]
+        [HttpGet("GetCariHargaPemesanan")]
+        public async Task<IActionResult> GetCariHargaPemesanan(double LokasiJemputLantitude , double LokasiJemputLongtitude, 
+                                                                double LokasiTujuanLantitude, double LokasiTujuanLongtitude, 
+                                                                string IDJenisFasilitas)
+        {
+            try
+            {
+                GeoCoordinate LokasiJemput_Geo = new GeoCoordinate(LokasiJemputLantitude, LokasiJemputLongtitude);
+                GeoCoordinate LokasiTujuan_Geo = new GeoCoordinate(LokasiTujuanLantitude, LokasiTujuanLongtitude);
+
+                Model.Harga_Pemesanan obj = await new Model_Action.Harga_Pemesanan_Action().Pencarian_Data(LokasiJemput_Geo, LokasiTujuan_Geo, IDJenisFasilitas);
+
+                return Ok((obj == null) ? null : obj);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Produces("application/json")]
+        [HttpPost("PesanDriver")]
+        public async Task<IActionResult> PesanDriver([FromBody] Pesan_Driver_Transaksi Pemesanan)
+        {
+            try
+            {
+                if (Pemesanan.ID_User.ID_User != null && Pemesanan.Harga_Pemesanan.Lokasi_Jemput != null)
+                {
+                    object obj = await new Model_Action.Transaksi_User_Action().Pesan_Driver(Pemesanan);
+                    return Ok((obj == null) ? null : obj);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Produces("application/json")]
+        [HttpPost("BatalPesanDriver/{IDTransaksi}")]
+        public async Task<IActionResult> BatalPesanDriver(string IDTransaksi)
+        {
+            try
+            {
+                if (IDTransaksi != null)
+                {
+                    object obj = await new Model_Action.Transaksi_User_Action().Batal_Pesan_Driver(IDTransaksi);
                     return Ok((obj == null) ? null : obj);
                 }
                 else

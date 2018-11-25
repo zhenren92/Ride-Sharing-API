@@ -180,10 +180,10 @@ namespace Ride_Sharing_API.Modul
                         {
                             cmd.Parameters.AddWithValue("@" + prm.Key, prm.Value);
                         }
-                        //else if (prm.Value.GetType() == typeof(int))
-                        //{
-                        //    cmd.Parameters.AddWithValue("@" + prm.Key, Convert.ToInt32(prm.Value));
-                        //}
+                        else if (prm.Value.GetType() == typeof(TimeSpan))
+                        {
+                            cmd.Parameters.AddWithValue("@" + prm.Key, TimeSpan.Parse(prm.Value.ToString()));
+                        }
                         else
                         {
                             Console.WriteLine(prm.Value.GetType());

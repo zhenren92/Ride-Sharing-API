@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GeoCoordinatePortable;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Ride_Sharing_API.Model;
@@ -101,6 +102,25 @@ namespace Ride_Sharing_API.Controllers
             catch (Exception ex)
             {
 
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [Produces("application/json")]
+        [HttpGet("GetLokasiDriver")]
+        public async Task<IActionResult> GetLokasiDriver(double Latitude, double Longitude, double Radius, int BanyakDriver = 0)
+        {
+            try
+            {
+                GeoCoordinate Lokasi_Jemput = new GeoCoordinate(Latitude, Longitude);
+
+                List<Model.Lokasi_GPS_Driver> obj = await new Model_Action.Lokasi_GPS_Driver_Action().Pencarian_Lokasi_Driver(Lokasi_Jemput, Radius, BanyakDriver);
+
+                return Ok((obj == null) ? null : obj);
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

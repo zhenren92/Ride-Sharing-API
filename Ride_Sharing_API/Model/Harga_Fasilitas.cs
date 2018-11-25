@@ -10,13 +10,11 @@ namespace Ride_Sharing_API.Model
         #region Deklarasi Properties
 
         private string _ID_Harga_Fasilitas;
-
         public string ID_Harga_Fasilitas
         {
             get { return _ID_Harga_Fasilitas; }
             set { _ID_Harga_Fasilitas = value; }
         }
-
         private string _Nama_Harga_Fasilitas;
 
         public string Nama_Harga_Fasilitas
@@ -26,7 +24,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private string _Satuan_Harga;
-
         public string Satuan_Harga
         {
             get { return _Satuan_Harga; }
@@ -34,7 +31,6 @@ namespace Ride_Sharing_API.Model
         }
 
         private decimal _Harga;
-
         public decimal Harga
         {
             get { return _Harga; }
