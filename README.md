@@ -5,7 +5,7 @@ Requirement untuk Client side :
 - Browser, contoh: Mozilla Firefox / Chrome
 
 Requirement untuk Development :
-- Visual Studio 2017 64bit
+- Visual Studio 2017 64bit / Visual Studio Code 64bit (Rekomendasi)
 - .Net Core 2.0 64bit : Ref: https://www.microsoft.com/net/download/dotnet-core/2.0
 - Windows 7, 10 64bit
 
